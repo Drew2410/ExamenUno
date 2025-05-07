@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión de Contenedores</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Contenedores del Barco #<span th:text="${barco.id}"></span>: <span th:text="${barco.nombre}"></span></h1>
+
+        <a th:href="@{'/contenedores/nuevo/' + ${barco.id}}" class="btn btn-success mb-3">Crear Contenedor</a>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>VIN</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="contenedor : ${contenedores}">
+                    <td th:text="${contenedor.id}"></td>
+                    <td th:text="${contenedor.vin}"></td>
+                    <td th:text="${contenedor.fecha}"></td>
+                    <td>
+                        <a th:href="@{'/contenedores/editar/' + ${contenedor.id}}" class="btn btn-primary btn-sm">Editar</a>
+                        <a th:href="@{'/contenedores/eliminar/' + ${contenedor.id}}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/" class="btn btn-secondary">Volver</a>
+    </div>
+</body>
+</html>

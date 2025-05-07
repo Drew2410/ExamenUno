@@ -1,0 +1,40 @@
+# Obtener todos los barcos
+GET http://localhost:8080/api/barcos
+Accept: application/json
+
+###
+
+# Obtener un barco por ID
+GET http://localhost:8080/api/barcos/1
+Accept: application/json
+
+###
+
+# Crear un nuevo barco
+POST http://localhost:8080/api/barcos
+Content-Type: application/json
+
+{
+  "nombre": "Barco Nuevo",
+  "origen": "Puerto A",
+  "destino": "Puerto B",
+  "capacidad": 150
+}
+
+###
+
+# Actualizar un barco existente
+PUT http://localhost:8080/api/barcos/1
+Content-Type: application/json
+
+{
+  "nombre": "Barco Actualizado",
+  "origen": "Puerto C",
+  "destino": "Puerto D",
+  "capacidad": 200
+}
+
+###
+
+# Eliminar un barco por ID
+DELETE http://localhost:8080/api/barcos/1
